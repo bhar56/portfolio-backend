@@ -1,33 +1,36 @@
-const express =require("express"); //requiring express and storing in express variable of const type
-const app = express(); // express is a function storing in app variable of const type
+const express = require("express");
+const app = express();
 const path = require("path");
+const fs = require("fs");
+
 const PORT = process.env.PORT || 3000;
-app.set("views",path.join(__dirname,"/views"));
-app.set("view engine","ejs");
-app.use(express.static("public"));//using public folder
-app.use(express.static(path.join(__dirname,"/public")));
+
+// View engine
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+// Middleware
+app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname)));
-const fs=require("fs");
+app.use(express.json());
 
-
-
-app.listen(PORT,()=>{  //to listen request using listen function of app(express)
-     console.log("Server listening on "+PORT);
+// Routes
+app.get("/", (req, res) => {
+    res.render("home.ejs");
 });
 
+app.post("/contact", (req, res) => {
 
-app.get("/",(req,res)=>{
-    res.render("home.ejs")
-})
-app.post("/contact",(req,res)=>{
-    let username= req.body.name
-    let message= req.body.message
-    let email=req.body.email
-    console.log("username",username)
-    console.log("email",email)
-    console.log("message",message)
-    res.send("form submitted successfully")
+    console.log("Contact route hit");   // Debug
+
+    let username = req.body.name;
+    let email    = req.body.email;
+    let message  = req.body.message;
+
+    console.log("username:", username);
+    console.log("email:", email);
+    console.log("message:", message);
+
     let formData =
         "Name: " + username + "\n" +
         "Email: " + email + "\n" +
@@ -45,5 +48,12 @@ app.post("/contact",(req,res)=>{
         }
 
     });
-    
-})
+
+});
+
+// Server
+app.listen(PORT, () => {
+    console.log("Server listening on " + PORT);
+});
+
+
