@@ -19,6 +19,9 @@ app.use(express.json());
 app.get("/", (req, res) => {
     res.render("home.ejs");
 });
+app.get("/about", (req, res) => {
+    res.render("about.ejs");
+});
 
 app.post("/contact", (req, res) => {
 
@@ -56,5 +59,6 @@ app.post("/contact", (req, res) => {
 app.listen(PORT, () => {
     console.log("Server listening on " + PORT);
 });
+
 
 
