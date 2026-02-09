@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 // View engine
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(express.static("public"));
 
 // Middleware
 app.use(express.static(path.join(__dirname, "public")));
@@ -55,4 +56,5 @@ app.post("/contact", (req, res) => {
 app.listen(PORT, () => {
     console.log("Server listening on " + PORT);
 });
+
 
