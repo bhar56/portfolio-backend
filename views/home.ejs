@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+    
+        <header class="header">
+            <nav class="navbar">
+                <h1 class="logo" id="message">Chetan</h1>
+                <ul class="nav-links">
+                    <li>About</li>
+                    <li>Skills</li>
+                    <li onclick="scrollToSection('Projects')">Project</li>
+                    <li>Career</li>
+                </ul>
+            </nav>
+        </header>
+    <section class="hero" id="about">
+        <h2>Hello, I'm Chetan</h2>
+        <p>Frontend Developer|HTML|CSS</p>
+        <button class="btn" id="mybtn">Hire Me</button>
+    </section>
+    <section class="skills" id="skills">
+    <h2>My Skills</h2>
+
+    <div class="skill-box">
+        <p class="skill">HTML</p>
+        <p class="skill">CSS</p>
+        <p class="skill">Responsive Design</p>
+    </div>
+</section>
+
+    <section class="projects" id="projects">
+    <h2>Projects</h2>
+
+    <div class="project-cards">
+        <div class="card">Portfolio Website</div>
+        <div class="card">Landing Page</div>
+        <div class="card">Blog Layout</div>
+    </div>
+</section>
+
+    <section class="contact" id="contact">
+    <h2>Contact Me</h2>
+
+    <form class="contact-form" action="/contact" method="post">
+        <input type="text" placeholder="Your Name" id="contact" name="name">
+        <input type="email" placeholder="Your Email" name="email">
+        <textarea placeholder="Message" name="message"></textarea>
+        <button class="btn" id="send" type="submit">Send</button>
+        <p id="para"> click me </p>
+    </form>
+</section>
+
+    <footer>
+        <p>@Chetan Bhargava 2026</p>
+        
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
